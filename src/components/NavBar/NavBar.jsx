@@ -20,7 +20,8 @@ const listAnimation = {
   }),
 };
 
-const NavBar = ({ flexDir = 'row' }) => {
+const NavBar = () => {
+  console.log(navItems);
   return (
     <Flex
       as={motion.ul}
@@ -29,7 +30,6 @@ const NavBar = ({ flexDir = 'row' }) => {
       viewport={{ amount: 0.2, once: true }}
       gap={5}
       listStyleType="none"
-      flexDir={flexDir}
     >
       {navItems.map(({ name, path }, index) => (
         <Box
@@ -38,7 +38,9 @@ const NavBar = ({ flexDir = 'row' }) => {
           custom={index + 1}
           key={name}
         >
-          <NavLink className="navLink" to={path}></NavLink>
+          <NavLink className="navLink" to={path}>
+            {name}
+          </NavLink>
         </Box>
       ))}
     </Flex>
